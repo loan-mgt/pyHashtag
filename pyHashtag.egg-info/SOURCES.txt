@@ -1,0 +1,7 @@
+README.md
+setup.py
+pyHashtag.egg-info/PKG-INFO
+pyHashtag.egg-info/SOURCES.txt
+pyHashtag.egg-info/dependency_links.txt
+pyHashtag.egg-info/requires.txt
+pyHashtag.egg-info/top_level.txt

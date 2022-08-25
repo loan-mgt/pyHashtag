@@ -7,7 +7,7 @@ LONG_DESCRIPTION = 'The package is made for twitter, it add hashtag to know word
 # Setting up
 setup(
        # the name must match the folder name 'verysimplemodule'
-        name="Hashtag", 
+        name="pyHashtag", 
         version=VERSION,
         author="Loan MAEGHT",
         author_email="qypol342@gmail.com",

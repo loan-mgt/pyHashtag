@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: pyHashtag
+Version: 0.0.1
+Summary: Hashtag to text
+Author: Loan MAEGHT
+Author-email: qypol342@gmail.com
+License: UNKNOWN
+Keywords: python,hashtag
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Linux
+Classifier: Operating System :: Microsoft :: Windows
+
+The package is made for twitter, it add hashtag to know word in text
+
