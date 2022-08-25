@@ -1,0 +1,6 @@
+setup.py
+Hashtag.egg-info/PKG-INFO
+Hashtag.egg-info/SOURCES.txt
+Hashtag.egg-info/dependency_links.txt
+Hashtag.egg-info/requires.txt
+Hashtag.egg-info/top_level.txt
