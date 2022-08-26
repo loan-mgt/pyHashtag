@@ -1,5 +1,7 @@
 README.md
 setup.py
+pyHashtag/Hashtag.py
+pyHashtag/__init__.py
 pyHashtag.egg-info/PKG-INFO
 pyHashtag.egg-info/SOURCES.txt
 pyHashtag.egg-info/dependency_links.txt
