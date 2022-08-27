@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-VERSION = '0.0.4' 
+VERSION = '0.0.5' 
 DESCRIPTION = 'Hashtag to text'
 LONG_DESCRIPTION = 'The package is made for twitter, it add hashtag to know word in text'
 
