@@ -15,6 +15,9 @@ Here is a small exemple of what it does:
     
 		Clearest Shot of #Mars ever taken from #Space.
 
+
+
+
 ## Install
 Installing this python lib is as simple as runing this command in your terminal :
 
@@ -23,6 +26,10 @@ Installing this python lib is as simple as runing this command in your terminal 
 If you want to verify the install way succesfull you can do :
 
 `pip show pyHashtag`
+
+
+
+
 
 ## Help
 
@@ -41,3 +48,19 @@ Here is a exemple of a line of the database
 You can edit de database [here](https://github.com/Qypol342/pyHashtag/edit/main/pyHashtag/hashtag_list.json) 
 
 
+
+
+
+## Code example
+```
+# importing pyHashtag
+import pyHashtag
+
+# add Hashtag to your text
+pyHashtag.hashtag("Clearest Shot of Mars ever taken from space.")
+# return "Clearest Shot of #Mars ever taken from #Space."
+
+# update your local database from pulling directly from github
+pyHashtag.update()
+
+```
