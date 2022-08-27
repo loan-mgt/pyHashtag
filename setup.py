@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-VERSION = '0.0.2' 
+VERSION = '0.0.4' 
 DESCRIPTION = 'Hashtag to text'
 LONG_DESCRIPTION = 'The package is made for twitter, it add hashtag to know word in text'
 
@@ -14,8 +14,13 @@ setup(
         description=DESCRIPTION,
         long_description=LONG_DESCRIPTION,
         packages=find_packages(),
-        install_requires=['unidecode','requests','rich'], # add any additional packages that 
+        install_requires=['unidecode','requests','importlib_resources'], # add any additional packages that 
         # needs to be installed along with your package. Eg: 'caer'
+
+        # static file
+        package_data = {
+            '': ['*.json'],
+        },
         
         keywords=['python', 'hashtag'],
         classifiers= [

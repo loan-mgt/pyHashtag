@@ -1,24 +1,32 @@
-import unidecode
-import requests 
-import json
-
+import sys, os, json, requests, unidecode, asyncio
+import asyncio
+from importlib import resources
 try:
     from rich import print
 except Exception as e:
-    print("[yellow][ERROR][/yellow] no color print")
+    print("[ERROR] no color print")
 
 
-def get_lib():
+if __package__ != None:
+	PATH = resources.path(__package__,'hashtag_list.json')
+else:
+	PATH = 'hashtag_list.json'
+
+
+
+
+def update():
+    print("update")
     result = requests.get( 
               "https://raw.githubusercontent.com/Qypol342/Hashtag/main/hashtag_list.json") 
-    return  json.loads(result.text)
+    with open(PATH,'w') as reader:
+        reader.write(result.text)
+    
 
 
 def log(text, debug=True):
 	if debug:
 		print(f"[bold green][INFO][/bold green]{text}")
-
-
 
 
 def hashtag(text='',debug=False):
@@ -27,13 +35,12 @@ def hashtag(text='',debug=False):
 
     allow = [',','.',' ','!','?',"'",'"',":",";","(",")"]
     
-    try:   
-        lib = get_lib()
-    except Exception as e:
-        print("could not reatch git:",e)
-        f = open('hashtag_list.json')
-        lib = json.load(f)
+    with open(PATH,'r') as reader:
+ 
+        lib = json.loads(reader.read())
     
+
+    print(len(lib))
     for i, v in lib.items():
 
         if len(text) >= 280:
@@ -78,6 +85,7 @@ def hashtag(text='',debug=False):
     
     #test = bytes(text,'UTF-8')
     log("Reply successfully",debug)
+
    
     return text
 
@@ -88,7 +96,7 @@ def hashtag(text='',debug=False):
 
 if __name__ == '__main__':
  
-    try:
+    
         print( "[bold green][INFO][/bold green] Starting...")
      	
         assert("test" == hashtag("test"))
@@ -96,6 +104,4 @@ if __name__ == '__main__':
         assert("#US" == hashtag("#US",debug=True))
        
 
-    except Exception as e:
-        print("[bold red][ERROR][/bold red] SERIOUS API ERROR",e)
-
+    

@@ -2,6 +2,8 @@ README.md
 setup.py
 pyHashtag/Hashtag.py
 pyHashtag/__init__.py
+pyHashtag/async_test.py
+pyHashtag/hashtag_list.json
 pyHashtag.egg-info/PKG-INFO
 pyHashtag.egg-info/SOURCES.txt
 pyHashtag.egg-info/dependency_links.txt
