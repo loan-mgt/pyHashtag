@@ -1,5 +1,5 @@
-# pyHashtag 
-<img src="https://developer.fedoraproject.org/static/logo/python.png" style="height:200px;float:left;">
+
+<img src="https://github.com/Qypol342/pyHashtag/blob/main/img/banner.png?raw=true" style="float:left;">
 
 
 
