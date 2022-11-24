@@ -40,11 +40,11 @@ def hashtag(text='',debug=False):
         lib = json.loads(reader.read())
     
 
-    print(len(lib))
+    log(len(lib), debug)
     for i, v in lib.items():
 
         if len(text) >= 280:
-            print("[bold red][ERROR][/bold red] text to long to add hashtag")
+            log("[bold red][ERROR][/bold red] text to long to add hashtag",debug)
             break
         
         text_low = unidecode.unidecode(text).lower()
@@ -56,7 +56,7 @@ def hashtag(text='',debug=False):
             if text_low.index(i) == 0 or text[text_low.index(i)-1] != '#':
 
                 if text_low.index(i) != 0:
-                    print("cheking first char",text[text_low.index(i)-1],"in",text[text_low.index(i)-1] not in allow)
+                    log("cheking first char "+text[text_low.index(i)-1]+" in "+text[text_low.index(i)-1] not in allow,debug)
 
 
                 if text_low.index(i) != 0 and text[text_low.index(i)-1] not in allow: 
@@ -66,7 +66,7 @@ def hashtag(text='',debug=False):
                     continue
                 if text_low.index(i)+len(i)< len(text):
 
-                    print("cheking last char",text[text_low.index(i)+len(i)],"in",text[text_low.index(i)+len(i)] not in allow)
+                    log("cheking last char "+text[text_low.index(i)+len(i)]+" in "+text[text_low.index(i)+len(i)] not in allow,debug)
                 if text_low.index(i)+len(i)< len(text) and text[text_low.index(i)+len(i)] not in allow:
                     """
                     arreter si le caractère apres fait pas parti de la liste autoriser
@@ -75,7 +75,7 @@ def hashtag(text='',debug=False):
 
 
                 else:
-                    print("[bold green][INFO][/bold green] hashtag found :",lib[i])
+                    log("[bold green][INFO][/bold green] hashtag found : "+lib[i],debug)
                     inn = text_low.index(i)
                     
                     text = text[:inn] + lib[i] + text[inn + len(i):]
