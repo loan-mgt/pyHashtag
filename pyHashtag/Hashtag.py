@@ -1,3 +1,4 @@
+"""
 import unidecode
 import requests 
 import json
@@ -95,3 +96,4 @@ if __name__ == '__main__':
     except Exception as e:
         print("[bold red][ERROR][/bold red] SERIOUS API ERROR",e)
 
+"""
