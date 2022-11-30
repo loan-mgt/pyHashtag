@@ -4,7 +4,7 @@
 
 
 
-## About
+## :hash: About
 pyHashtag is a python lib made to insert hashtag into text. This lib was made originaly for [Twitter](twitter.com), but hashtag are fairly universal.
 
 Here is a small exemple of what it does:
@@ -18,7 +18,7 @@ Here is a small exemple of what it does:
 
 
 
-## Install
+## :computer: Install
 Installing this python lib is as simple as runing this command in your terminal :
 
 `pip install git+https://github.com/Qypol342/Hashtag-lib.git`
@@ -31,7 +31,7 @@ If you want to verify the install way succesfull you can do :
 
 
 
-## Help
+## :green_book: Help
 
 Your help is welcome, you can help us to enlarge our database of usefull hashtag.
 
@@ -51,7 +51,7 @@ You can edit de database [here](https://github.com/Qypol342/pyHashtag/edit/main/
 
 
 
-## Code example
+## :bookmark_tabs: Code example
 ```
 # importing pyHashtag
 import pyHashtag
