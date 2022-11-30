@@ -1,39 +1,51 @@
-import unidecode
-import requests 
-import json
 
+import sys, os, json, requests, unidecode, asyncio
+import asyncio
+from importlib import resources
 try:
     from rich import print
 except Exception as e:
-    print("[yellow][ERROR][/yellow] no color print")
+    print("[ERROR] no color print")
 
 
-def get_lib():
+if __package__ != None:
+	PATH = resources.path(__package__,'hashtag_list.json')
+else:
+	PATH = 'hashtag_list.json'
+
+
+
+
+def update():
+    print("update")
     result = requests.get( 
               "https://raw.githubusercontent.com/Qypol342/Hashtag/main/hashtag_list.json") 
-    return  json.loads(result.text)
+    with open(PATH,'w') as reader:
+        reader.write(result.text)
+    
 
 
+def log(text, debug=True):
+	if debug:
+		print(f"[bold green][INFO][/bold green]{text}")
 
 
+def hashtag(text='',debug=False):
 
-
-def hashtag(text=''):
-    print("[bold green][INFO][/bold green] Incoming request")
+    log("Incoming request",debug)
 
     allow = [',','.',' ','!','?',"'",'"',":",";","(",")"]
     
-    try:   
-        lib = get_lib()
-    except Exception as e:
-        print("could not reatch git:",e)
-        f = open('hashtag_list.json')
-        lib = json.load(f)
+    with open(PATH,'r') as reader:
+ 
+        lib = json.loads(reader.read())
     
+
+    log(len(lib), debug)
     for i, v in lib.items():
 
         if len(text) >= 280:
-            print("[bold red][ERROR][/bold red] text to long to add hashtag")
+            log("[bold red][ERROR][/bold red] text to long to add hashtag",debug)
             break
         
         text_low = unidecode.unidecode(text).lower()
@@ -45,7 +57,7 @@ def hashtag(text=''):
             if text_low.index(i) == 0 or text[text_low.index(i)-1] != '#':
 
                 if text_low.index(i) != 0:
-                    print("cheking first char",text[text_low.index(i)-1],"in",text[text_low.index(i)-1] not in allow)
+                    log("cheking first char "+text[text_low.index(i)-1]+" in "+text[text_low.index(i)-1] not in allow,debug)
 
 
                 if text_low.index(i) != 0 and text[text_low.index(i)-1] not in allow: 
@@ -55,7 +67,7 @@ def hashtag(text=''):
                     continue
                 if text_low.index(i)+len(i)< len(text):
 
-                    print("cheking last char",text[text_low.index(i)+len(i)],"in",text[text_low.index(i)+len(i)] not in allow)
+                    log("cheking last char "+text[text_low.index(i)+len(i)]+" in "+text[text_low.index(i)+len(i)] not in allow,debug)
                 if text_low.index(i)+len(i)< len(text) and text[text_low.index(i)+len(i)] not in allow:
                     """
                     arreter si le caractère apres fait pas parti de la liste autoriser
@@ -64,7 +76,7 @@ def hashtag(text=''):
 
 
                 else:
-                    print("[bold green][INFO][/bold green] hashtag found :",lib[i])
+                    log("[bold green][INFO][/bold green] hashtag found : "+lib[i],debug)
                     inn = text_low.index(i)
                     
                     text = text[:inn] + lib[i] + text[inn + len(i):]
@@ -72,26 +84,15 @@ def hashtag(text=''):
     
     
     
-    test = bytes(text,'UTF-8')
+    #test = bytes(text,'UTF-8')
+    log("Reply successfully",debug)
 
-    res = {'hashtaged':text}
-    print("[bold green][INFO][/bold green] Reply successfully")
-  
-    return jsonify(res)
-
+   
+    return text
 
 
 
 
 
-if __name__ == '__main__':
- 
-    try:
-        print( "[bold green][INFO][/bold green] Starting...")
 
-        assert("test" == hashtag("test"))
-       
-
-    except Exception as e:
-        print("[bold red][ERROR][/bold red] SERIOUS API ERROR",e)
-
+    

@@ -1,7 +1,7 @@
 README.md
 setup.py
-pyHashtag/Hashtag.py
 pyHashtag/__init__.py
+pyHashtag/hashtag.py
 pyHashtag/hashtag_list.json
 pyHashtag.egg-info/PKG-INFO
 pyHashtag.egg-info/SOURCES.txt

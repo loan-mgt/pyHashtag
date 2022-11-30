@@ -1,4 +1,13 @@
 {
+"Crew Dragon":"#CrewDragon",
+"falcon 9":"#Falcon9",
+"inspiration 4":"#Inspiration4",
+"space x":"#SpaceX",
+"space force":"#SpaceFroce",
+"gilet jaune":"GiletJaunes",
+"pass sanitaire":"#PassSanitaire",
+"virgin galactic":"#VirginGalactic",
+"union europeenne":"#UnionEuropeenne",
 
 
 "inspiration":"#Inspiration4",
@@ -41,7 +50,6 @@
 "sncf":"#SNCF",
 "rafale":"#Rafale",
 "evtol":"#eVTOL",
-"vol":"#VTOL",
 "skyteam":"#Skyteam",
 
 "elon musk":"#ElonMusk",
@@ -88,6 +96,7 @@
 "sport":"#Sport",
 "foot":"#Foot",
 "rugby":"#Rugby",
+"live":"#LIVE",
 
 "attentat":"#Attentat",
 "otage":"#Otage",
